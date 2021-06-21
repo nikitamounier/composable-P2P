@@ -6,6 +6,6 @@
             // This is an example of a functional test case.
             // Use XCTAssert and related functions to verify your tests produce the correct
             // results.
-            XCTAssertEqual(composable_P2P().text, "Hello, World!")
+            //XCTAssertEqual(composable_P2P().text, "Hello, World!")
         }
     }
