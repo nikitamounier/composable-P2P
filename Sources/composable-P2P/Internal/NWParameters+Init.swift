@@ -1,15 +1,4 @@
-//
-//  File.swift
-//  
-//
-//  Created by Nikita Mounier on 21/06/2021.
-//
-
-#if canImport(CryptoKit)
 import CryptoKit
-#else
-// import Crypto
-#endif
 import Network
 
 extension NWParameters {
@@ -48,4 +37,11 @@ extension NWParameters {
         let customProtocol = NWProtocolFramer.Options(definition: TLVMessageProtocol.definition)
         self.defaultProtocolStack.applicationProtocols.insert(customProtocol, at: 0)
     }
+    
+    convenience init(includePeerToPeer: Bool, interfaceType: NWInterface.InterfaceType) {
+        self.init()
+        self.includePeerToPeer = includePeerToPeer
+        self.requiredInterfaceType = interfaceType
+    }
 }
+

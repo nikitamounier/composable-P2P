@@ -1,12 +1,4 @@
-//
-//  File.swift
-//  
-//
-//  Created by Nikita Mounier on 21/06/2021.
-//
-
 import Foundation
-import OSLog
 import Network
 
 final class TLVMessageProtocol: NWProtocolFramerImplementation {
@@ -37,11 +29,7 @@ final class TLVMessageProtocol: NWProtocolFramerImplementation {
         framer.writeOutput(data: header.encodedData)
         
         // Ask the connection to insert the content of the application message after your header.
-        do {
-            try framer.writeOutputNoCopy(length: messageLength)
-        } catch let error {
-            os_log("Hit error writing: %@", error.localizedDescription)
-        }
+        try? framer.writeOutputNoCopy(length: messageLength)
     }
     
     func handleInput(framer: NWProtocolFramer.Instance) -> Int {
